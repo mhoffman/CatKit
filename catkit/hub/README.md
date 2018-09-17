@@ -10,6 +10,10 @@ or with any of its sub-commands, like so
 
 ## Examples
 
+To organize DFT Input files into a catalysis-hub.org compliant folder structure
+
+    cathub organize folder_name -d gas_molecules_folder -a CO2,CO,C -c VASP-5.4.4 -x PBE+U -f 111 -S Ni_fcc -v -k -r C,O2 
+
 To create an .json input file
 
     cathub make_folders_template project1.json --create-template
