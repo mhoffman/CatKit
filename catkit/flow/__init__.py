@@ -3,5 +3,9 @@
 """Catalysis WorkFlow."""
 
 from .laminar import Laminar
+from .cohesive import Cohesive
 
-__all__ = ['Laminar']
+__all__ = [
+    'Laminar',
+    'Cohesive',
+]
