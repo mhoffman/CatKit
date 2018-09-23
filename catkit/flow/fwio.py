@@ -2,6 +2,7 @@ from ase.calculators.singlepoint import SinglePointCalculator as SPC
 from ase.io import write
 from ase import Atoms
 from ase.constraints import dict2constraint
+import ase.spacegroup
 import numpy as np
 import json
 supported_properties = ['energy', 'forces', 'stress', 'magmoms', 'magmom']
@@ -103,6 +104,10 @@ def atoms_to_encode(images):
     for k, v in list(keys.items()):
         if isinstance(v, np.ndarray):
             keys[k] = v.tolist()
+        elif isinstance(v, ase.spacegroup.Spacegroup):
+            # can be insert from reading cif-files
+            keys[k] = v.todict()
+
 
     data = {'trajectory': {}}
     # Assemble the compressed dictionary of results
