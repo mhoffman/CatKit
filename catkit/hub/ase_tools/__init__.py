@@ -60,6 +60,7 @@ def collect_structures(foldername, verbose=False, level='*'):
                 continue
             if filetype:
                 try:
+                    print(posix_filename)
                     structure = ase.io.read(posix_filename)
                     structure.info['filename'] = posix_filename
                     structure.info['filetype'] = ase.io.formats.filetype(

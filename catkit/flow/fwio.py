@@ -44,7 +44,7 @@ def encode_to_atoms(encode, out_file='input.traj'):
         data['trajectory']['0']['positions'],
         cell=data['trajectory']['0']['cell'],
         pbc=data['pbc'])
-    atoms.info = data['calculator_parameters']
+    atoms.info = data['info']
     atoms.set_constraint([dict2constraint(_) for _ in data['constraints']])
     initial_magmoms = data.get('initial_magmoms')
     if initial_magmoms:
@@ -125,7 +125,7 @@ def atoms_to_encode(images):
             data['numbers'] = images[0].get_atomic_numbers().tolist()
             data['pbc'] = images[0].get_pbc().tolist()
             data['constraints'] = constraints
-            data['calculator_parameters'] = keys
+            data['info'] = keys
             initial_magmoms = atoms.arrays.get('initial_magmoms')
             if initial_magmoms is not None:
                 data['initial_magmoms'] = list(initial_magmoms)

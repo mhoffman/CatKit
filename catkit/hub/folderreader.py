@@ -397,6 +397,8 @@ class FolderReader:
         for key, mollist in self.reaction_atoms.items():
             for i, molecule in enumerate(mollist):
                 if self.states[key][i] == 'gas':
+                    print("ASE IDS GAS")
+                    print(self.ase_ids_gas)
                     assert molecule in self.ase_ids_gas.keys(), \
                         """Molecule {molecule} is missing in folder {gas_folder}"""\
                         .format(molecule = clear_prefactor(self.reaction[key][i]),
